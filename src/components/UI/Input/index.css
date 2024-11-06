@@ -1,0 +1,26 @@
+.input {
+    color: #f562dc;
+    font-family: "Outfit" sans-serif;
+    font-size: 18px;
+    width: 20vw;
+    height: 40px;
+    border: none;
+    border-image: linear-gradient(45deg, #f119cd, #451cfb) 1;
+    border-width: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-style: solid;
+    outline: none;
+    transition: .5s;
+}
+
+.input::placeholder {
+    color: #f119cd9a;
+}
+
+.input:focus {
+    transition: .5s;
+    border-image: linear-gradient(45deg, #f562dc, #f562dc) 1;
+    border-width: 3px;
+    border-style: solid;
+}

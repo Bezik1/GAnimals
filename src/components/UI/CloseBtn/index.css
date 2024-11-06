@@ -1,0 +1,17 @@
+.close-btn {
+    cursor: pointer;
+    transition: .5s;
+    z-index: 12;
+    color: #f119cd;
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    top: 12vw;
+    right: 47.5vw;
+}
+
+.close-btn:hover {
+    transition: .5s;
+    transform: scale(1.2);
+    color: #efa8ff;
+}

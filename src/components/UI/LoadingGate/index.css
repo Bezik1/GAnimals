@@ -1,0 +1,22 @@
+.loading {
+    position: fixed;
+    top: 5%;
+    right: 28%;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    border: 30px solid #a61cfb;
+    border-top: 30px solid #a61cfb;
+    mask-image: linear-gradient(transparent 10%, black 100%);
+    animation: rotate 2s linear infinite;
+}
+
+/* Animacja rotacji */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

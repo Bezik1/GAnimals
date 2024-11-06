@@ -1,0 +1,34 @@
+.alert-container {
+    opacity: 0;
+    top: 5%;
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    background-color: #f11981;
+}
+
+.activate {
+    opacity: 0;
+    animation: fadeInOut 5s ease-in-out forwards;
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

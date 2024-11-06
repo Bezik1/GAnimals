@@ -1,0 +1,11 @@
+.title {
+    transition: .5s;
+    font-family: 'Outfit', sans-serif;
+    z-index: 2;
+    text-align: center;
+}
+
+.title-deactivated {
+    transition: .5s;
+    color: #8e8e8e;
+}

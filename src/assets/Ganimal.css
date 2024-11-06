@@ -1,4 +1,6 @@
 .ganimal {
-    width: 40vw;
-    color: #000;
+    position: absolute;
+    right: 25%;
+    width: 50vw;
+    height: 93vh;
 }
