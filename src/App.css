@@ -73,6 +73,7 @@
   top: 17%;
   right: 3%;
   width: 25vw;
+  overflow-y: auto;
   height: 74.5vh;
 }
 

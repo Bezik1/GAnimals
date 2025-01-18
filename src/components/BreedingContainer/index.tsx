@@ -28,13 +28,13 @@ const BreedingContainer = ({ ganimals, breedersListActive, currentInfoGanimalSho
             </div>
             {ganimals.map(ganimal => Genom.analyzeParentString(ganimal.genome).gender != gender && (
                 <SwitchTitle
-                baseColor="#fb475f"
-                conditionColor="#63b6ff"
-                condition={Genom.analyzeParentString(ganimal.genome).gender}
-                title={ganimal.name}
-                func={() => handleBreedingPrepare(ganimal)}
+                    baseColor="#fb475f"
+                    conditionColor="#63b6ff"
+                    condition={Genom.analyzeParentString(ganimal.genome).gender}
+                    title={ganimal.name}
+                    func={() => handleBreedingPrepare(ganimal)}
                 >
-                <GenderComponent gender={Genom.analyzeParentString(ganimal.genome).gender}/>
+                    <GenderComponent gender={Genom.analyzeParentString(ganimal.genome).gender}/>
                 </SwitchTitle>
             ))}
         </div>

@@ -96,18 +96,30 @@ export class Genom {
     }
 
     static analyzeParentString(parentString: string): Genom {
-        const gender = parentString.charAt(0) === "1";
-        const isCarnivour = parentString.charAt(1) === "1";
+        const gender = parentString.charAt(0) === '1';
 
-        const baseColor = new Color(parentString.substring(3, 11));
-        const eyeColor = new Color(parentString.substring(11, 19));
-        const specialColor = new Color(parentString.substring(19, 27));
+        const isCarnivourAllels = parentString.substring(1, 3);
+        const isCarnivour = parentString.charAt(4) === '1';
 
-        const enviroment = parseInt(parentString.substring(27, 28), 10);
+        const baseColorAllels = parentString.substring(5, 7);
+        const baseColor = new Color(parentString.substring(7, 15));
 
-        const hasClaws = parentString.charAt(28) === "1";
-        const hasSpikes = parentString.charAt(29) === "1";
+        const eyeColorAllels = parentString.substring(15, 17);
+        const eyeColor = new Color(parentString.substring(17, 25));
+
+        const specialColorAllels = parentString.substring(25, 27);
+        const specialColor = new Color(parentString.substring(27, 35));
+
+        const enviromentAllels = parentString.substring(35, 37);
+        const enviroment = parseInt(parentString.charAt(37), 10);
+
+        const hasClawsAllels = parentString.substring(38, 40);
+        const hasClaws = parentString.charAt(40) === '1';
+
+        const hasSpikesAllels = parentString.substring(41, 43);
+        const hasSpikes = parentString.charAt(43) === '1';
 
         return new Genom(gender, isCarnivour, baseColor, eyeColor, specialColor, enviroment, hasClaws, hasSpikes);
     }
+
 }

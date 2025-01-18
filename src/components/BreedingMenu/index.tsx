@@ -9,6 +9,7 @@ import { useAlert } from "../../contexts/AlertContext"
 import { useUser } from "../../contexts/UserContext"
 import axios from "axios"
 import { BREED_ANIMAL_USER_API_URL } from "../../const/api"
+import { Response } from "../types/Response"
 
 type BreedingMenuProps = {
     potentialPartner: GAnimal | undefined
@@ -30,18 +31,18 @@ const BreedingMenu = ({ potentialPartner, direction, child, ganimals, currentGan
             if(!user) { setNewAlert("User is not logged in!"); return; }
             if(!potentialPartner) { setNewAlert("There is no potential partner!"); return; }
 
-            const { email: userEmail } = user
+            const { email: senderEmail } = user
 
             const animalName = animalNameInputRef.current.value;
-            const userPassword = passwordInputRef.current.value;
+            const senderPassword = passwordInputRef.current.value;
 
             const firstParentId = ganimals[currentGanimalIndex].id
             const secondParentId = potentialPartner.id
 
             const breedingReq = {
                 amount: 12.0,
-                userEmail,
-                userPassword,
+                senderEmail,
+                senderPassword,
                 animalName,
                 firstParentId,
                 secondParentId,
@@ -49,10 +50,10 @@ const BreedingMenu = ({ potentialPartner, direction, child, ganimals, currentGan
 
             console.log(breedingReq)
 
-            const res = await axios.post<GAnimal>(BREED_ANIMAL_USER_API_URL, breedingReq)
+            const res = await axios.post<Response<GAnimal>>(BREED_ANIMAL_USER_API_URL, breedingReq)
 
             if(res.status != 200) { setNewAlert("Breeding failed!"); return; }
-            setChild(res.data)
+            setChild(res.data.body)
             console.log(res.data)
         } catch(err) {
             console.log(err)

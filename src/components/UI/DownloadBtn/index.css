@@ -1,0 +1,19 @@
+.download-btn {
+    transition: .5s;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    bottom: 20vh;
+    left: 16.1vw;
+    color: #f119cd;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: #1f2127;
+    padding: 10px;
+}
+
+.download-btn:hover {
+    transition: .5s;
+    color: #efa8ff;
+}

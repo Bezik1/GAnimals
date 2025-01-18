@@ -10,6 +10,7 @@ import { GET_USERS_ANIMALS_API_URL, LOGIN_API_URL } from "../../const/api"
 import { GAnimal, ReqLoginUser, User } from "../types/Data"
 import { useNavigate } from "react-router-dom"
 import { useGAnimals } from "../../contexts/GAnimalsContext"
+import { Response } from "../types/Response"
 
 const LoginForm = () =>{
     const navigate = useNavigate()
@@ -28,14 +29,14 @@ const LoginForm = () =>{
                 email: emailInputRef.current.value,
                 password: passswordInputRef.current.value,
             }
-            const res = await axios.post<User>(LOGIN_API_URL, userLoginReq)
+            const res = await axios.post<Response<User>>(LOGIN_API_URL, userLoginReq)
 
             if(res.status !== 200) { setNewAlert(`${res.status} Validation Error`); return; }
-            setUser(res.data)
+            setUser(res.data.body)
 
-            const resAnimals = await axios.post<GAnimal[]>(`${GET_USERS_ANIMALS_API_URL}/${res.data.id}`)
+            const resAnimals = await axios.post<Response<GAnimal[]>>(`${GET_USERS_ANIMALS_API_URL}/${res.data.body.id}`)
             if(resAnimals.status !== 200) { setNewAlert(`${res.status} Validation Error`); return; }
-            setGAnimals(resAnimals.data)
+            setGAnimals(resAnimals.data.body)
 
             navigate('/ganimals')
         } catch(err) {

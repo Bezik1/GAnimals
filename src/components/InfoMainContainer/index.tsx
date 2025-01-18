@@ -6,6 +6,7 @@ import "./index.css"
 import ColorBox from "../UI/ColorBox"
 import ConditionSvg from "../UI/ConditionSvg"
 import GenderComponent from "../UI/GenderComponent"
+import { DownloadBtn } from "../UI/DownloadBtn"
 
 type InfoContainerProps = {
     menuActive: boolean
@@ -55,45 +56,45 @@ const InfoMainContainer = ({ menuActive, currentInfoGanimalShow, ganimals, curre
                     </div>
                     </ConditionGate>
                     <ConditionGate condition={child != undefined}>
-                    <div
-                        className={`choose-ganimal ${currentInfoGanimalShow === child && 'choosen-ganimal'}`}
-                        onClick={() => child && setCurrentInfoGanimalShow(child)}
-                    >
-                        {String(child?.name)}
-                    </div>
+                        <div
+                            className={`choose-ganimal ${currentInfoGanimalShow === child && 'choosen-ganimal'}`}
+                            onClick={() => child && setCurrentInfoGanimalShow(child)}
+                        >
+                            {String(child?.name)}
+                        </div>
                     </ConditionGate>
                 </div>
                 <div className='properties-1'>
                     <InfoContainer property='Name'>
                         <InfoText>{name}</InfoText>
                     </InfoContainer>
-                    <InfoContainer property='Genome'>
+                    {/* <InfoContainer property='Genome'>
                         <InfoText>{genomeString}</InfoText>
-                    </InfoContainer>
+                    </InfoContainer> */}
                 </div>
                 <div className='properties-2'>
                     <div className='colors'>
-                    <InfoContainer property="Base Color">
-                        <ColorBox color={baseColor} />
-                    </InfoContainer>
-                    <InfoContainer property="Special Color">
-                        <ColorBox color={specialColor} />
-                    </InfoContainer>
-                    <InfoContainer property="Eye Color">
-                        <ColorBox color={eyeColor} />
-                    </InfoContainer>
+                        <InfoContainer property="Base Color">
+                            <ColorBox color={baseColor} />
+                        </InfoContainer>
+                        <InfoContainer property="Special Color">
+                            <ColorBox color={specialColor} />
+                        </InfoContainer>
+                        <InfoContainer property="Eye Color">
+                            <ColorBox color={eyeColor} />
+                        </InfoContainer>
                     </div>
-                <div className='boolean-properties'>
-                    <InfoContainer property="Claws">
-                        <ConditionSvg value={hasClaws} />
-                    </InfoContainer>
-                    <InfoContainer property="Spikes">
-                        <ConditionSvg value={hasSpikes} />
-                    </InfoContainer>
-                    <InfoContainer property="Carnivour">
-                        <ConditionSvg value={isCarnivour} />
-                    </InfoContainer>
-                </div>
+                    <div className='boolean-properties'>
+                        <InfoContainer property="Claws">
+                            <ConditionSvg value={hasClaws} />
+                        </InfoContainer>
+                        <InfoContainer property="Spikes">
+                            <ConditionSvg value={hasSpikes} />
+                        </InfoContainer>
+                        <InfoContainer property="Carnivour">
+                            <ConditionSvg value={isCarnivour} />
+                        </InfoContainer>
+                    </div>
                 </div>
                 <InfoContainer className='gender-container' property='Gender'>
                     <div className='ganimal-gender'><GenderComponent gender={gender}/></div>
